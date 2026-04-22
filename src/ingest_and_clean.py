@@ -1,20 +1,17 @@
+import os
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
-import os
 
-# Load environment variables
+# Load environment variables from .env
 load_dotenv()
 
-DB_HOST = os.getenv('DB_HOST', 'localhost')
-DB_PORT = os.getenv('DB_PORT', '5432')
-DB_NAME = os.getenv('DB_NAME', 'healthdb')
-DB_USER = os.getenv('DB_USER', 'healthuser')
-DB_PASSWORD = os.getenv('DB_PASSWORD', 'healthpass123')
-DB_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode=require"
+# Use DATABASE_URL directly from environment
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 def get_engine():
-    return create_engine(DB_URL)
+    return create_engine(DATABASE_URL)
 
 def load_raw_data():
     df = pd.read_csv("data/healthcare_dataset.csv")
