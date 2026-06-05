@@ -62,7 +62,7 @@ Healthcare-ml-project/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/mainamuragev/Healthcare-ml-project.git
+git clone https://github.com/maureenmuthoni-hue/Healthcare-ml-project.git
 cd Healthcare-ml-project
 ```
 
